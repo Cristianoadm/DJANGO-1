@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gateway de pagamento</title>
+    <link rel="stylesheet" href="{% static 'pagamento_app/styles.css' %}">
+</head>
+<body>
+    <!-- Resto do conteúdo HTML permanece o mesmo -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gateway de pagamento</title>
+</head>
+<body>
+    <h1>Gateway de pagamento</h1>
+
+    <form action="{% url 'process_payment' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="numero_cartao" placeholder="Número do cartão">
+        <input type="text" name="data_de_expiracao" placeholder="Data de expiração">
+        <input type="text" name="cvv_do_cartao" placeholder="CVV">
+        <input type="number" name="valor" placeholder="Valor">
+        <button type="submit">Pagar</button>
+    </form>
+</body>
+</html>
